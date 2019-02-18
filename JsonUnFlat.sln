@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonUnFlat", "JsonUnFlat\JsonUnFlat.csproj", "{172D3A36-3192-4C24-B816-4F34C4A5F056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonUnFlat.Tests", "JsonUnFlat.Tests\JsonUnFlat.Tests.csproj", "{60A715DA-16DD-4AE2-A26A-924B9AEE33FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{172D3A36-3192-4C24-B816-4F34C4A5F056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172D3A36-3192-4C24-B816-4F34C4A5F056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172D3A36-3192-4C24-B816-4F34C4A5F056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172D3A36-3192-4C24-B816-4F34C4A5F056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A715DA-16DD-4AE2-A26A-924B9AEE33FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A715DA-16DD-4AE2-A26A-924B9AEE33FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A715DA-16DD-4AE2-A26A-924B9AEE33FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A715DA-16DD-4AE2-A26A-924B9AEE33FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7B4DFF3-2B8D-47CC-904A-4E0A4C9316DA}
+	EndGlobalSection
+EndGlobal
