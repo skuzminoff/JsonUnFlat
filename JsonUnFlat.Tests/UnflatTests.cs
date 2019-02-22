@@ -1,12 +1,7 @@
-using System;
 using FluentAssertions;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
-using Microsoft.CSharp;
-using System.Text;
 using Xunit.Abstractions;
-using System.Collections.Generic;
 
 namespace JsonUnFlat.Tests
 {
@@ -59,12 +54,43 @@ namespace JsonUnFlat.Tests
             runTest(testFlatJson, expectedUnflattenedJson);
         }
 
+        [Fact]
+        public void Test_array_primitive_values_unflattened()
+        {
+            var testFlatJson = "{\"prop1[0]\":123,\"prop1[1]\":234}";
+            var expectedUnflattenedJson = "{\"prop1\":[123, 234]}";
+            runTest(testFlatJson, expectedUnflattenedJson);
+        }
+
+        [Fact]
+        public void Test_array_combine_values_unflattened()
+        {
+            var testFlatJson = "{\"prop1[0]\":123,\"prop1[1].prop3\":234}";
+            var expectedUnflattenedJson = "{\"prop1\":[123, {\"prop3\":234}]}";
+            runTest(testFlatJson, expectedUnflattenedJson);
+        }
+
+        [Fact]
+        public void Test_json_has_datetime_prop_unflat_successfull()
+        {
+            var testObjString = "{\"prop1.prop2\":\"2017-09-08T19:04:14.480Z\",\"prop3.prop4\":\"2017-09-08\",\"prop5[0]\":\"2017-09-03\",\"prop5[1]\":\"2017-09-04\",\"prop5[2]\":\"2017-09-05\",\"prop6[0]\":\"2017-09-08T19:04:14.480Z\",\"prop6[1]\":\"2017-09-03T19:04:14.480Z\"}";
+            var expectedResultString = "{\"prop1\":{\"prop2\":\"2017-09-08T19:04:14.480Z\"},\"prop3\":{\"prop4\":\"2017-09-08\"},\"prop5\":[\"2017-09-03\",\"2017-09-04\",\"2017-09-05\"],\"prop6\":[\"2017-09-08T19:04:14.480Z\",\"2017-09-03T19:04:14.480Z\"]}";
+            runTest(testObjString, expectedResultString);
+        }
+
+        [Fact]
+        public void Test_json_different_type_properties_unflat_successfull()
+        {
+           var  testObjString = "{\"prop1.prop2\":\"textprop\",\"prop3.prop4\":\"2017-09-08\",\"prop5[0]\":\"2017-09-05\",\"prop6.prop7\":3}";
+           var expectedResultString = "{\"prop1\":{\"prop2\":\"textprop\"},\"prop3\":{\"prop4\":\"2017-09-08\"},\"prop5\":[\"2017-09-05\"],\"prop6\":{\"prop7\":3}}";
+           runTest(testObjString, expectedResultString);
+        }
 
         private void runTest(string testJson, string expectedResultJson)
         {
             var testObj = JObject.Parse(testJson);
             _output.WriteLine("TEST DATA: " + testObj);
-            var unflattener = new JsonFlatter();
+            var unflattener = new Unflatter();
 
             var result = unflattener.Unflat(testObj);
             _output.WriteLine("RESULT: " + result);
