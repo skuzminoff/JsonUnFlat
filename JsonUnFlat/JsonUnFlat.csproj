@@ -1,4 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+    <FileVersion>1.0.0</FileVersion>
+    <Product>JsonUnFlat</Product>
+    <Authors>Kuzminov Stanislav</Authors>
+    <Description>Json flatter/unflatter based on Newtonsoft.Json object model</Description>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Title>JsonUnFlat</Title>
+    <PackageId>JsonUnFlat</PackageId>
+    <PackageTags>json</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/skuzminoff/JsonUnFlat</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl> 
+ </PropertyGroup>
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,11 +19,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="." />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Csharp" Version="4.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="EmptyCSharpFile.cs" />
-  </ItemGroup>
 </Project>
